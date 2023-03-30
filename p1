@@ -1,43 +1,45 @@
 import time
 import matplotlib.pyplot as plt
  
-
+# listas para armazenar os valores de n e o tempo de execução
 ns = []
 tempos = []
 elementos = [[0,1,2,3],[11,12,13,4],[10,15,14,5],[9,8,7,6]]
 lista = []
 
-for elemento in elementos:
-    for item in elemento:
-        lista.append(item)
+for elemento in elementos: #p/ cada lista na lista elementos
+    for item in elemento: #p/ cada item em cada pequena lista
+        lista.append(item) #adicione em uma lista, cada item
+# iterar sobre a lista, comparando cada elemento com o seu sucessor e trocando-os de posição se necessário
+for i in range(len(lista)): #elemento i é do tamanho da lista
+    for j in range(len(lista)-1): #elemento j é o tamanho da lista -1
+        if lista[j] > lista[j+1]: #se o menor elemento for maior que ele +1
+            lista[j], lista[j+1] = lista[j+1],lista[j] #a lista recebe eles ordenados. Maior e menor
+print(lista)
 
-for i in range(len(lista)): 
-    for j in range(len(lista)-1): 
-        if lista[j] > lista[j+1]: 
-            lista[j], lista[j+1] = lista[j+1],lista[j]
-
-for i in range(len(lista)): 
-    for j in range(len(lista)-1):
-        if lista[j] < lista[j+1]:
-            lista[j], lista[j+1] = lista[j+1],lista[j]
+for i in range(len(lista)): #elemento i é do tamanho da lista #15
+    for j in range(len(lista)-1):                             #14
+        if lista[j] < lista[j+1]: #se 14 for menor que 14+1
+            lista[j], lista[j+1] = lista[j+1],lista[j] #14 e 15 vai ficar na ordem: 15,14
 print(lista)
  
 def comple():
-  for elemento in elementos:
-      for item in elemento:
-          lista.append(item)
+  for elemento in elementos: #p/ cada lista na lista elementos
+      for item in elemento: #p/ cada item em cada pequena lista
+          lista.append(item) #adicione em uma lista, cada item
 
-
-  for i in range(len(lista)):
-      for j in range(len(lista)-1):
-          if lista[j] > lista[j+1]:
-              lista[j], lista[j+1] = lista[j+1],lista[j]
+  # iterar sobre a lista, comparando cada elemento com o seu sucessor e trocando-os de posição se necessário
+  for i in range(len(lista)): #elemento i é do tamanho da lista
+      for j in range(len(lista)-1): #elemento j é o tamanho da lista -1
+          if lista[j] > lista[j+1]: #se o menor elemento for maior que ele +1
+              lista[j], lista[j+1] = lista[j+1],lista[j] #a lista recebe eles ordenados. Maior e menor
               
-  for i in range(len(lista)):
-      for j in range(len(lista)-1):
-          if lista[j] < lista[j+1]: 
-              lista[j], lista[j+1] = lista[j+1],lista[j]
+  for i in range(len(lista)): #elemento i é do tamanho da lista #15
+      for j in range(len(lista)-1):                             #14
+          if lista[j] < lista[j+1]: #se 14 for menor que 14+1
+              lista[j], lista[j+1] = lista[j+1],lista[j] #14 e 15 vai ficar na ordem: 15,14
 
+# testa a função para vários valores de n
 for n in range(len(lista)):
     start = time.perf_counter()
     comple()
